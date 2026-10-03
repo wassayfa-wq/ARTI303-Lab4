@@ -1,0 +1,73 @@
+Lab 4: Variables in Prolog
+Task 1
+
+1. ?- house = house.                   
+- Result: true.
+- Reason: Same atom.
+
+2. ?- house = abc.                     
+- Result: false.
+- Reason: Different atoms cannot match.
+
+3. ?- edge(a, b) = edge(C, b).         
+- Result: C = a.
+- Reason: C matches with a.
+
+4. ?- edge(a, d) = edge(C, B).         
+- Result: C = a, B = d.
+- Reason: C gets a and B gets d.
+
+5. ?- edge(C, B) = edge(a, d).         
+- Result: C = a, B = d.
+- Reason: C gets a and B gets d.
+
+6. ?- edge(A, f(g, h)) = edge(a, B).   
+- Result: A = a, B = f(g, h).
+- Reason: A takes a, and B takes f(g, h).
+
+7. ?- edge(A, A) = edge(b, c).         
+- Result: false.
+- Reason: A cannot be b and c at the same time.
+
+8. ?- edge(A, A) = edge(b, b).         
+- Result: A = b.
+- Reason: Both are b so A = b.
+
+9. ?- A = B, B = f.                    
+- Result: A = f, B = f.
+- Reason: A links to B, and B is f.
+
+10. ?- A = B, B = f, A = e.            
+- Result: false.
+- Reason: A is already f, cannot be e.
+
+
+Task 2
+
+1. Shows the names of all females:
+?- female(X).
+Result:
+X = sara ;
+X = nora.
+
+2. Shows whether there is any male:
+?- male(_).
+Result: true.
+
+3. Shows the grandparent of Faisal:
+?- parent(GP, P), parent(P, faisal).
+Result: GP = ali, P = muhammad.
+
+4. Shows all daughters of Ahmad:
+?- parent(ahmad, X), female(X).
+Result:
+X = sara ;
+X = nora.
+
+5. Shows whether Ahmad and Muhammad have a common parent:
+?- parent(P, ahmad), parent(P, muhammad).
+Result: P = ali.
+
+6. Shows whether Khan is the brother of Nora:
+?- parent(P, nora), parent(P, khan), male(khan).
+Result: P = ahmad.
